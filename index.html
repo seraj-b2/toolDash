@@ -7,14 +7,14 @@
     <style>
       /* Add CSS for styling */
       body {
-        background-color: #222;
+        background-color: rgb(8, 9, 10);
         color: #ddd;
         font-family: Monaco, Courier New, Consolas, Menlo, monospace;
         padding: 20px;
         display: flex;
         /* justify-content: center; */
         /* align-items: center; */
-        height: 100vh;
+        /* height: 100vh; */
       }
       .dashboard {
         display: flex;
@@ -24,8 +24,8 @@
         align-items: stretch;
       }
       .card {
-        background-color: white;
-        border: 1px solid rgba(255, 255, 0, 0.183);
+        background-color: rgb(18, 20, 20);
+        border: 1px solid rgba(134, 134, 0, 0.18);
         border-radius: 12px;
         padding: 10px;
         width: 400px;
@@ -61,6 +61,11 @@
         <h2>Remove Duplicates</h2>
         <p></p>
       </div>
+      <!-- Card 3 -->
+      <div class="card" onclick="handleCardClick(3)">
+        <h2>Generate UUID (V4 / V5)</h2>
+        <p></p>
+      </div>
 
     </div>
 
@@ -69,6 +74,7 @@
       const LINKS = [
         "https://seraj-b2.github.io/excel_extractor/",
         "https://seraj-b2.github.io/remDupe/",
+        "https://seraj-b2.github.io/uuid/",
       ];
       /* run on page load */
       document.addEventListener("DOMContentLoaded", () => {
