@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <style>
+      /* Add CSS for styling */
+      body {
+        background-color: #222;
+        color: #ddd;
+        font-family: Monaco, Courier New, Consolas, Menlo, monospace;
+        padding: 20px;
+        display: flex;
+        /* justify-content: center; */
+        /* align-items: center; */
+        height: 100vh;
+      }
+      .dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        align-items: stretch;
+      }
+      .card {
+        background-color: white;
+        border: 1px solid rgba(255, 255, 0, 0.183);
+        border-radius: 12px;
+        padding: 10px;
+        width: 400px;
+        height: fit-content;
+        text-align: center;
+        letter-spacing: 1px;
+        word-spacing: 3px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+      .card h2 {
+        font-size: 1em;
+        color: rgba(255, 255, 0, 0.764);
+      }
+      .card p {
+        color: rgba(255, 255, 0, 0.435);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Card 1 -->
+      <div class="card" onclick="handleCardClick(1)">
+        <h2>CSV / Excel Data Extractor</h2>
+        <p></p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" onclick="handleCardClick(2)">
+        <h2>Remove Duplicates</h2>
+        <p></p>
+      </div>
+
+    </div>
+
+    <script>
+      // JavaScript function to handle card clicks
+      const LINKS = [
+        "https://seraj-b2.github.io/excel_extractor/",
+        "https://seraj-b2.github.io/remDupe/",
+      ];
+      /* run on page load */
+      document.addEventListener("DOMContentLoaded", () => {
+        let maxHeight = 0;
+        const pArray = document.querySelectorAll('.card p');
+        pArray.forEach((currPara, i) => {
+          currPara.innerHTML = LINKS[i];
+          if(maxHeight < currPara.clientHeight){
+            maxHeight = currPara.clientHeight;
+          }
+        })
+        pArray.forEach(p => {
+            p.style.height = `${maxHeight}px`;
+        });
+      });
+      function handleCardClick(cardNumber) {
+        location.href = LINKS[--cardNumber];
+      }
+    </script>
+  </body>
+</html>
